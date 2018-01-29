@@ -1,0 +1,12 @@
+Mary,p,Mary,2080.24,10000.00,1,2018,Car,2000.00
+Mary,p,Mary,65.00,600.00,1,2018,Printer,2000.00
+Mary,c,Joycelyn,450.00,5000.00,1,2018,Camera,2000.00
+Mary,p,Mary,6000.00,10000.00,12,2017,Car,3000.00
+Mary,p,Mary,112.00,600.00,12,2017,Printer,3000.00
+Mary,c,Joycelyn,800.20,5000.00,12,2017,Camera,3000.00
+Jeff,p,Jeff,5000.00,20000.00,1,2018,Car,4000.00
+Jeff,c,Lucas,320.00,700.00,1,2018,Phone,4000.00
+Jeff,c,Casey,20.00,100.00,1,2018,Clothes,4000.00
+Jeff,p,Jeff,3210.00,20000.00,12,2017,Car,0.00
+Jeff,c,Lucas,150.00,700.00,12,2017,Phone,0.00
+Jeff,c,Casey,25.00,100.00,12,2017,Clothes,0.00

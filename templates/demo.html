@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+    body{
+ font-family: 'Montserrat', sans-serif;
+}
+
+/* Strip the ul of padding and list styling */
+ul {
+list-style-type: none;
+ margin:0;
+ padding:0;
+ position:absolute;
+}
+li {
+ display: inline-block;
+ float: left;
+ margin-right: 1px;
+}
+li a {
+ display:block;
+ min-width:140px;
+ height:50px;
+ text-align: center;
+ line-height: 50px;
+ font-family: Constantia, Lucida Bright, DejaVu Serif, Georgia, serif;
+ color: #fff;
+ background: #2f3036;
+ text-decoration: none;
+}
+
+/* Hover State for Top Level Links */
+li:hover a{
+ background: #19c589;
+}
+
+/* Style for Dropdown Links */
+li:hover ul li a {
+ background: #f3f3f3;
+ color: #2f3036;
+ height: 40px;
+ line-height: 40px;
+}
+
+/* Hover State for Dropdown Links */
+li:hover ul li a:hover {
+ background:#19c589;
+ color: #fff;
+}
+
+
+/* Hide Dropdown Links Until Needed */
+li ul {
+ display: none;
+}
+
+/*Make Dropdown Links Vertical */
+li ul li {
+ display: block;
+ float: none;
+}
+
+/* Prevent Text Wrapping on Dropdown Links */
+li ul li a {
+ width: auto;
+ min-width: 100px;
+ padding: 0 20px;
+}
+
+/* Display Dropdown on Hover */
+ul li a:hover + .hidden, .hidden:hover {
+ display: block;
+}
+
+/* Hide Checkbox */
+input[type=checkbox] {
+ display: none;
+}
+
+/* Show Menu When Invisible Checkbox is Checked */
+input[type=checkbox]:checked ~ #menu {
+ display: block;
+}
+
+.show-menu {
+ font-family: Constantia, Lucida Bright, DejaVu Serif, Georgia, serif;
+ text-decoration:none;
+ color:#fff;
+ background:#19c589;
+ text-align:center;
+ padding: 10px 0;
+ display: none;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 760px) {
+ /* Make Dropdown Links Appear Links */
+ ul {
+  position: static;
+  display: none;
+ }
+ /* Create Vertical Spacing */
+ li {
+  margin-bottom: 1px;
+ }
+ /* Make All Menu Links Full Width */
+ ul li, li a {
+  width: 100%;
+ }
+ .show-menu {
+  display: block;
+ }
+ body {
+  background-image: none;
+ }
+}﻿
+
+</style>
+</head>
+
+<body>
+
+
+<!--Show Menu for Responsive Side Menu-->
+<label for='show-menu' class='show-menu'>Show Menu</label>
+<input type='checkbox' id='show-menu' role='button' >
+<!--Actual Menu Layout-->
+<ul id = 'menu'>
+ <li><a href="#">Home</a></li>
+ <li><a href="#">About</a>
+  <ul class='hidden'>
+   <li><a href="">Our Team</a></li>
+   <li><a href="">Camp Sites</a></li>
+   <li><a href="">Mission &amp; Vision</a></li>
+   <li><a href="">Resources</a></li>
+  </ul>
+    <li><img src="static/images/logo.jpg" width="100" height="100"></li>
+ <li><a href="#">Things to do</a>
+  <ul class='hidden'>
+   <li><a href="">Activities</a></li>
+   <li><a href="">Parks</a></li>
+   <li><a href="">Shops</a></li>
+   <li><a href="">Events</a></li>
+  </ul>
+ </li>
+ <li><a href="#">Contact</a>
+  <ul class='hidden'>
+   <li><a href="">Map</a></li>
+   <li><a href="">Directions</a></li>
+  </ul>
+ </li>
+</ul>
+
+</body>
+</html>
+

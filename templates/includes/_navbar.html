@@ -1,0 +1,75 @@
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,100' rel='stylesheet' type='text/css'>
+
+<div class="fullWidth header">
+ <div class="container">
+   <div class="col-xs-12 col-sm-2 col-md-3 col-md-offset-1 col-lg-4 col-lg-offset-1 header-logo"><a href="#" class="header-logo-name"><img src="static/images/logoLONGER.jpg" width="200" height="95" style="clear: left;"></a></div>
+   <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 header-nav">
+     <ul>
+       <li>
+         <a href="/" class="header-nav-link header-nav-top-link">Home</a>
+       </li>
+       <li>
+         <a href="#" class="header-nav-link header-nav-top-link">About Us</a>
+       </li>
+       <li>
+         <a href="#" class="header-nav-link header-nav-top-link">Accounts</a>
+         <ul>
+           <li><a href="#" class="header-nav-link header-nav-sub-link">Parent</a></li>
+           <li><a href="#" class="header-nav-link header-nav-sub-link">Child</a></li>
+         </ul>
+       </li>
+       <li>
+           <a href="#" class="header-nav-link header-nav-top-link">Rewards</a>
+       </li>
+       <li>
+         <a href="#" class="header-nav-link header-nav-top-link">Financial Planner</a>
+         <ul>
+           <li><a href="#" class="header-nav-link header-nav-sub-link">Spendings</a></li>
+           <li><a href="#" class="header-nav-link header-nav-sub-link">Savings</a></li>
+         </ul>
+       </li>
+
+
+     </ul>
+
+   </div>
+ </div>
+</div>
+
+<style>
+    body {margin:0;padding:0;}
+.header {background-color:black;}
+
+* {transition:all 0.3s;-webkit-transition:all 0.3s;font-family: 'Roboto', sans-serif;}
+.header-nav {position:relative;float:left;margin:0 auto;}
+.header-nav ul {position:absolute;float:left;list-style:none;margin:0;padding:0;}
+.header-nav ul li {position:relative;float:left;border-left:4px solid rgba(224, 52, 106, 1);}
+.header-nav ul li ul {margin-left:-4px;}
+.header-nav > ul {position:relative;}
+.header-nav > ul > li:last-child {border-right:4px solid rgba(224, 52, 106, 1);}
+
+.header-nav > ul > li > .header-nav-link + ul li {width:100%;opacity:0;height:0;margin-top:-48px;border-bottom:2px solid rgba(224, 52, 106, 1);}
+.header-nav > ul > li:hover .header-nav-link + ul > li {opacity:1;height:auto;margin-top:0;}
+.header-nav .header-nav-link {float:left;text-decoration:none;color:#FFF;font-weight:300;padding:15px;width:100%;}
+.header-nav .header-nav-link:hover {background-color:rgba(224, 52, 106, 1) !important;}
+
+.header-nav .header-nav-top-link {padding: 25px 15px 25px;}
+.header-nav ul li:hover .header-nav-link {background-color:black;}
+.header-nav ul li:hover .header-nav-top-link {background-color:rgba(224, 52, 106, 0.8);}
+
+.header-nav > ul > li > .header-nav-top-link + ul {top:70px;}
+.header-nav > ul > li:hover .header-nav-sub-link {background-color:black;}
+
+.header-logo > .header-logo-name {float:left;color:#FFF;font-size:30px;font-weight:bold;padding:14px 0;}
+.header-logo > .header-logo-name:hover {text-decoration:none;}
+
+@media (max-width: 1000px) {
+ .header-nav > ul > li {width:100%;border-right:4px solid rgba(224, 52, 106, 1);border-bottom:2px solid rgba(224, 52, 106, 1);}
+ .header-nav > ul > li:first-child > a {font-size:18px;font-weight:400;}
+ .header-nav > ul > li:last-child {border-bottom:none;}
+ .header-nav > ul > li > .header-nav-top-link + ul {position:relative;top:0px;left:4px;width:100%;}
+ .header-nav > ul > li > .header-nav-top-link + ul li {position:relative;float:left;border-left:none;width:100%;}
+}
+
+
+</style>

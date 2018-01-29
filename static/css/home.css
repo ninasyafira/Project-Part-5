@@ -1,0 +1,28 @@
+#info {
+    background-color: aqua;
+}
+
+#one p {
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;;
+        }
+
+#one img {
+            float : right;
+        }
+
+#two {
+            padding-top: 100px;
+        }
+
+#two p {
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;;
+        }
+
+#progress {
+            float: right;
+            margin-bottom: 100px;
+        }
+
+#progress img {
+            position: absolute;
+}

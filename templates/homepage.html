@@ -1,0 +1,175 @@
+{% extends 'layout.html' %}
+{% block body %}
+    {% from "includes/_formhelper.html" import render_field %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>January 2018</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+    <style>
+
+        * {
+            font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', sans-serif;
+        }
+
+        body {
+            background-color: black;
+            color: white;
+        }
+
+
+        .dropbtn {
+            background-color: gray;
+            color: white;
+            padding: 5px;
+            font-size: 26px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 175px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        #warning {
+            font-weight: bolder;
+            font-size: 150%;
+            background-color: red;
+            color: white;
+        }
+
+        table, th, td {
+            border: 1px solid #E0346A;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #E0346A ;
+        }
+
+        th, td {
+            padding : 15px;
+        }
+
+
+
+</style>
+</head>
+
+<body>
+
+<h1>Enter month and year to see your previous records</h1>
+<div class="'form">
+        <form method="POST" action="/selected">
+            <div class="form-group">
+                {{ render_field(form.monthStr, class_="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ render_field(form.yearStr,class_="form-control") }}
+            </div>
+            <input type="submit" value="Submit" class="btn btn-info" onclick="check()"/>
+        </form>
+</div>
+
+
+<div>
+    <table style="width:100%">
+
+        <tr>
+            <th>Name</th>
+            <th>What you have saved this month :</th>
+            <th>How much more to reach your goal :</th>
+            <th>Interest earned this month :</th>
+        </tr>
+        {% for user in users %}
+            {% if user.get_type() == 'p' %}
+
+        <tr>
+            <td>{{ user.get_name() }}</td>
+            <td>$ {{ user.get_saving() }} ({{ user.get_goalType() }})</td>
+            <td>$ {{ user.get_left() }} / $ {{ user .get_goal()}}</td>
+            <td>$ {{ user.get_interest() }}</td>
+        </tr>
+            {% else %}
+        <br>
+        <br>
+        <tr>
+            <th>Name (Child)</th>
+            <th>What {{ user.get_name() }} have saved this month :</th>
+            <th>How much more to reach {{ user.get_name() }}'s goal :</th>
+            <th>Interest earned this month :</th>
+        </tr>
+
+        <tr>
+            <td>{{ user.get_name() }}</td>
+            <td>$ {{ user.get_saving() }} ({{ user.get_goalType() }})</td>
+            <td>$ {{ user.get_left() }} / $ {{ user .get_goal()}}</td>
+            <td>$ {{ user.get_interest() }}</td>
+            {% endif %}
+        {% endfor %}
+
+        </tr>
+    </table>
+</div>
+
+
+<br>
+<hr>
+
+{% for limit in limits %}
+    {% if limit.get_type() == 'p' and limit.get_spend() > limit.get_limit() %}
+        <h2>Spending Overview</h2>
+        <p>Your spending limit is $ {{ limit.get_limit() }}</p>
+        <p>You have spent <span style='font-weight:bold;font-size: 150%;'>over</span> your spending limit!</p>
+        <p>Overspent by : <span id="warning">$ {{ over }}</span></p>
+
+    {% else %}
+        <h2>Spending Overview</h2>
+        <p>Your spending limit for this month is $ {{ limit.get_limit() }}</p>
+        <p>You spent $ {{ limit.get_spend() }}</p>
+        <p>You have spent <span style='font-weight:bold;font-size: 150%; background-color: darkseagreen;'>within</span> your spending limit!</p>
+    {% endif %}
+{% endfor %}
+
+
+
+</body>
+</html>
+{% endblock %}
+
